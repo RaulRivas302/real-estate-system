@@ -1,0 +1,92 @@
+import { StaticImageData } from "next/image";
+
+import feedbackThumb_1 from "@/assets/images/media/img_01.jpg";
+import feedbackThumb_2 from "@/assets/images/media/img_02.jpg";
+import feedbackThumb_3 from "@/assets/images/media/img_03.jpg";
+
+import feedback3Thumb_1 from "@/assets/images/media/img_01.jpg";
+import feedback3Thumb_2 from "@/assets/images/media/img_02.jpg";
+import feedback3Thumb_3 from "@/assets/images/media/img_03.jpg";
+
+import quoteIcon from "@/assets/images/icon/icon_29.svg";
+
+interface DataType {
+   id: number;
+   page: string;
+   desc: string;
+   title: string;
+   country: string;
+   thumb: StaticImageData;
+   quote_icon: StaticImageData;
+}
+
+const feedback_data: DataType[] = [
+   {
+      id: 1,
+      page: "home_3",
+      desc: "Efficient and friendly service, guided us perfectly. Satisfied with our new home. Thank you!",
+      title: "Mark Filo",
+      country: "Los Angeles, USA",
+      thumb: feedback3Thumb_1,
+      quote_icon: quoteIcon,
+   },
+   {
+      id: 2,
+      page: "home_3",
+      desc: "Found our dream home. Great Business with them. Thank you for excellent service.",
+      title: "Chris Matial",
+      country: "New York, USA",
+      thumb: feedback3Thumb_2,
+      quote_icon: quoteIcon,
+   },
+   {
+      id: 3,
+      page: "home_3",
+      desc: "Efficient and friendly service, guided us perfectly. Satisfied with our new home. Thank you!",
+      title: "John Doe",
+      country: "Miami, USA",
+      thumb: feedback3Thumb_3,
+      quote_icon: quoteIcon,
+   },
+   {
+      id: 4,
+      page: "home_3",
+      desc: "Found our dream home. Great Business with them. Thank you for excellent service.",
+      title: "Emily Harper",
+      country: "Chicago, USA",
+      thumb: feedback3Thumb_2,
+      quote_icon: quoteIcon,
+   },
+
+   // home_5
+
+   {
+      id: 1,
+      page: "home_5",
+      desc: "Game-changer! Boosted efficiency, simplified tasks, and saved time. Highly recommended!",
+      title: "Michael Cooper",
+      country: "California, USA",
+      thumb: feedbackThumb_1,
+      quote_icon: quoteIcon,
+   },
+   {
+      id: 2,
+      page: "home_5",
+      desc: "Found our dream home. Great Business with them. simplified tasks, and saved time. Thank You",
+      title: "David Taylor",
+      country: "California, USA",
+      thumb: feedbackThumb_2,
+      quote_icon: quoteIcon,
+   },
+   {
+      id: 3,
+      page: "home_5",
+      desc: "Efficient and friendly service, guided us perfectly. Satisfied with our new home. Thank you!",
+      title: "Jennifer Adams",
+      country: "California, USA",
+      thumb: feedbackThumb_3,
+      quote_icon: quoteIcon,
+   },
+]
+
+export default feedback_data;
