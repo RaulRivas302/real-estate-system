@@ -9,7 +9,7 @@
 
 
 ## 🌟 Overview
-**Hozn - Real Estate** is a **Full-Stack** real estate website built with **React, Next.js, TypeScript** . The platform allows users to browse, list, and manage properties seamlessly.
+**Hozn - Real Estate** is a real estate website built with **React, Next.js, TypeScript** . The platform allows users to browse, list, and manage properties seamlessly.
 
 ## 🎯 Features
 - 🔥 **Modern UI/UX** with smooth animations
