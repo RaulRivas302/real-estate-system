@@ -85,6 +85,8 @@ npm install
 cd ../real-estate-system
 
 npm run dev
+or
+npm start
 ```
 
 ```
