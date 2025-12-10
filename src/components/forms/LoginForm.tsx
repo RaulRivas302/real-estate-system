@@ -9,6 +9,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import Image from "next/image";
 
 import OpenEye from "@/assets/images/icon/icon_68.svg";
+import { demoLogin } from "@/utils/auth";
 
 interface FormData {
    email: string;
@@ -28,23 +29,22 @@ const LoginForm = () => {
 
    const onSubmit = async (data: FormData) => {
       try {
-         const response = await fetch("http://localhost:5000/api/auth/login", { 
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data),
-         });
+         // Demo authentication using localStorage
+         const result = demoLogin(data.email, data.password);
 
-         const result = await response.json();
-
-         if (response.ok) {
+         if (result.success) {
             toast.success("Login successfully", { position: "top-center" });
             reset();
-            router.push("/dashboard/dashboard-index"); 
+            // Close modal
+            const closeButton = document.querySelector('#loginModal .btn-close') as HTMLButtonElement;
+            closeButton?.click();
+            // Redirect to dashboard
+            setTimeout(() => router.push("/dashboard/dashboard-index"), 500);
          } else {
-            toast.error(result.message || "Invalid email or password");
+            toast.error(result.message || "Invalid email or password", { position: "top-center" });
          }
       } catch (error) {
-         toast.error("An error occurred. Please try again.");
+         toast.error("An error occurred. Please try again.", { position: "top-center" });
       }
    };
 

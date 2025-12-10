@@ -6,11 +6,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
-import axios from "axios";
 import { useRouter } from "next/navigation"; 
 
-
 import OpenEye from "@/assets/images/icon/icon_68.svg";
+import { demoSignup } from "@/utils/auth";
 
 interface FormData {
   name: string;
@@ -54,18 +53,27 @@ const RegisterForm = () => {
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/signup", data);
+      // Demo authentication using localStorage
+      const result = demoSignup(data.name, data.email, data.password);
 
-      if (response.status === 201) {
-        toast.success("Registration successful! Redirecting to login...", {
+      if (result.success) {
+        toast.success("Registration successful! Redirecting to dashboard...", {
           position: "top-center",
         });
 
         reset();
-        setTimeout(() => router.push("/dashboard/dashboard-index"), 2000); 
+        // Close modal
+        const closeButton = document.querySelector('#loginModal .btn-close') as HTMLButtonElement;
+        closeButton?.click();
+        // Redirect to dashboard
+        setTimeout(() => router.push("/dashboard/dashboard-index"), 1000);
+      } else {
+        toast.error(result.message || "Error during registration", {
+          position: "top-center",
+        });
       }
     } catch (error: any) {
-      toast.error(error.response?.data?.error || "Error during registration", {
+      toast.error("An error occurred. Please try again.", {
         position: "top-center",
       });
     } finally {
